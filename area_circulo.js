@@ -9,7 +9,7 @@ export default function App() {
 
   const area = () => {
     const ab = Math.PI * parseFloat(a)**2;
-    setResultado(`A área desse círculo é ${ab.toFixed(2)}m`);
+    setResultado(`A área desse círculo é ${ab.toFixed(2)}m²`);
   };
 
   return (

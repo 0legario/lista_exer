@@ -9,7 +9,7 @@ export default function App() {
 
   const area = () => {
     const ab = parseFloat(a) **2;
-    setResultado(`Área do quadrado: ${ab}m, seu dobro: ${ab*2}m`);
+    setResultado(`Área do quadrado: ${ab}m, seu dobro: ${ab*2}m²`);
   };
 
   return (
