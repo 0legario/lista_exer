@@ -5,33 +5,25 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet} from
 
 export default function App() { 
   const [a, setA] = useState('');
-  const [b, setB] = useState('');
   const [resultado, setResultado] = useState('');
 
-  const tempo = () => {
-    const ab = (parseFloat(a) / (parseFloat(b)/8))/60;
-    setResultado(`O tempo de download é ${parseFloat(ab.toFixed(2))}min`);
+  const conversao = () => {
+    const ab = parseFloat(a)*100;
+    setResultado(`${parseFloat(a)}m são ${ab}cm`);
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Calcula Tempo de Download</Text>
+      <Text style={styles.title}>Calcula Metros para Centímetros</Text>
       <TextInput
         style={styles.input}
-        placeholder="Digite o tamanho do arquivo (MB)"
+        placeholder="Digite a medida em metros"
         keyboardType="numeric"
         value={a}
         onChangeText={(text) => setA(text)}
       />
-       <TextInput
-        style={styles.input}
-        placeholder="Digite a velocidade de download (MBPS)"
-        keyboardType="numeric"
-        value={b}
-        onChangeText={(text) => setB(text)}
-      />
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={tempo}>
+        <TouchableOpacity style={styles.button} onPress={conversao}>
           <Text style={styles.buttonText}>Calcular</Text>
         </TouchableOpacity>
       </View>

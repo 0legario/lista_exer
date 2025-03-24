@@ -5,34 +5,33 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet} from
 
 export default function App() { 
   const [a, setA] = useState('');
-  const [b, setB] = useState('');
   const [resultado, setResultado] = useState('');
 
-  const tempo = () => {
-    const ab = (parseFloat(a) / (parseFloat(b)/8))/60;
-    setResultado(`O tempo de download é ${parseFloat(ab.toFixed(2))}min`);
+  const cTof = () => {
+    const ab = (parseFloat(a) * 1.8) + 32;
+    setResultado(`${parseFloat(a)}°F são ${ab.toFixed(2)}°C`);
+  };
+  const fToc = () => {
+    const ab = (parseFloat(a) -32) / 1.8;
+    setResultado(`${parseFloat(a)}°C são ${ab.toFixed(2)}°F`);
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Calcula Tempo de Download</Text>
+      <Text style={styles.title}>Converte Temperatura</Text>
       <TextInput
-        style={styles.input}
-        placeholder="Digite o tamanho do arquivo (MB)"
+        style={styles.input}  
+        placeholder="Digite a temperatura"
         keyboardType="numeric"
         value={a}
         onChangeText={(text) => setA(text)}
       />
-       <TextInput
-        style={styles.input}
-        placeholder="Digite a velocidade de download (MBPS)"
-        keyboardType="numeric"
-        value={b}
-        onChangeText={(text) => setB(text)}
-      />
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={tempo}>
-          <Text style={styles.buttonText}>Calcular</Text>
+        <TouchableOpacity style={styles.button} onPress={fToc}>
+          <Text style={styles.buttonText}>Converter para Celcius</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={cTof}>
+          <Text style={styles.buttonText}>Calcular para Fahrenheit</Text>
         </TouchableOpacity>
       </View>
       <Text style={styles.result}>{resultado}</Text>

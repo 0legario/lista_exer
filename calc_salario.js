@@ -8,30 +8,30 @@ export default function App() {
   const [b, setB] = useState('');
   const [resultado, setResultado] = useState('');
 
-  const tempo = () => {
-    const ab = (parseFloat(a) / (parseFloat(b)/8))/60;
-    setResultado(`O tempo de download é ${parseFloat(ab.toFixed(2))}min`);
+  const salario = () => {
+    const ab = parseFloat(a) * parseFloat(b);
+    setResultado(`Seu salário é R$${parseFloat(ab.toFixed(2))}`);
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Calcula Tempo de Download</Text>
+      <Text style={styles.title}>Calcula Salário</Text>
       <TextInput
         style={styles.input}
-        placeholder="Digite o tamanho do arquivo (MB)"
+        placeholder="Digite o quanto você ganha por hora"
         keyboardType="numeric"
         value={a}
         onChangeText={(text) => setA(text)}
       />
        <TextInput
         style={styles.input}
-        placeholder="Digite a velocidade de download (MBPS)"
+        placeholder="Digite o quantas horas você trabalhou no mês"
         keyboardType="numeric"
         value={b}
         onChangeText={(text) => setB(text)}
       />
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={tempo}>
+        <TouchableOpacity style={styles.button} onPress={salario}>
           <Text style={styles.buttonText}>Calcular</Text>
         </TouchableOpacity>
       </View>

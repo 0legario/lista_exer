@@ -8,30 +8,30 @@ export default function App() {
   const [b, setB] = useState('');
   const [resultado, setResultado] = useState('');
 
-  const tempo = () => {
-    const ab = (parseFloat(a) / (parseFloat(b)/8))/60;
-    setResultado(`O tempo de download é ${parseFloat(ab.toFixed(2))}min`);
+  const media = () => {
+    const ab = parseFloat(a) * parseFloat(b);
+    setResultado(`Força resultante: ${ab}N`);
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Calcula Tempo de Download</Text>
+      <Text style={styles.title}>Calcula Força</Text>
       <TextInput
         style={styles.input}
-        placeholder="Digite o tamanho do arquivo (MB)"
+        placeholder="Digite a massa (kg)"
         keyboardType="numeric"
         value={a}
         onChangeText={(text) => setA(text)}
       />
-       <TextInput
+      <TextInput
         style={styles.input}
-        placeholder="Digite a velocidade de download (MBPS)"
+        placeholder="Digite a aceleração(m/s²)"
         keyboardType="numeric"
         value={b}
         onChangeText={(text) => setB(text)}
       />
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={tempo}>
+        <TouchableOpacity style={styles.button} onPress={media}>
           <Text style={styles.buttonText}>Calcular</Text>
         </TouchableOpacity>
       </View>
